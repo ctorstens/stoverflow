@@ -1,8 +1,13 @@
 Stoverflow::Application.routes.draw do
-
+  
   match '/' => 'questions#index'
-  resources :answers
+  match '/login' => 'logins#new'
+  match '/logout' => 'logins#delete'
+
+
+  resources :users,  :only => [:new, :create, :show]
+  resources :logins, :only => [:create]
   resources :questions
-  resources :users, :only => [:new, :create, :show]
- 
+  resources :answers
+
 end

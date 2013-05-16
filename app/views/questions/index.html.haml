@@ -3,6 +3,11 @@
 %h4
   Meeting all your Stove Needs
 
+- if session[:id]
+  = link_to 'Logout', logout_path
+- else
+  = link_to 'Login', login_path
+
 - @questions.each do |question|
   %p
     Score
