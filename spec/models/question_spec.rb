@@ -24,4 +24,4 @@ describe Question do
       bad_question.should_not be_valid
     end
   end
-endgit 
+end
