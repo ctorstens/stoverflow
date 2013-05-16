@@ -1,3 +1,24 @@
-= @question.title
-%br
-= @question.content
+%h1 Question
+%h3
+  = @question.title
+%h4
+  = @question.content
+
+.answers
+  %h2 Answers
+  %ul
+    - @question.answers.each do |answer|
+      %li
+        %p
+          Score
+          =answer.votes.count
+        %p=answer.content
+        %p
+          %h5
+            Written by
+            =answer.user.handle.titleize
+            Posted
+            =time_ago_in_words(answer.created_at)
+            ago
+      = link_to "Edit", edit_answer_path(answer)
+      = link_to "Delete", answer_path(answer), :method => :delete
