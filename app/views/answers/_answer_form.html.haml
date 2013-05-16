@@ -1,0 +1,6 @@
+= form_for @answer do |f|
+ / .form-field
+ = f.label :content
+ %br
+ = f.text_area :content
+ .form-field=f.submit 'submit answer'
