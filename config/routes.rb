@@ -8,5 +8,6 @@ Stoverflow::Application.routes.draw do
   resources :users,  :only => [:new, :create, :show]
   resources :logins, :only => [:create]
   resources :questions
-   
+  resources :answers
+
 end

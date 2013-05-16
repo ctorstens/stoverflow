@@ -8,26 +8,27 @@ NUMBER_USERS.times do
     { :handle => Faker::Internet.user_name,
       :email => Faker::Internet.safe_email,
       :password => '123456'}, 
-      :without_protection => true
+    :without_protection => true
   )
 end
 users = User.all
 
 NUMBER_QUESTIONS.times do
   Question.create(
-     {:user => users.sample,
+    { :user => users.sample,
       :title => Faker::Company.catch_phrase,
-      :content => Faker::Company.bs},
-      :without_protection => true
+      :content => Faker::Lorem.paragraph},
+    :without_protection => true
   )
 end
 questions = Question.all
 
 NUMBER_ANSWERS.times do
   Answer.create(
-    {:content => Faker::Company.bs,
-        :question_id => questions.sample.id},
-        :without_protection => true
+    { :user => users.sample,
+      :content => Faker::Lorem.paragraphs,
+      :question_id => questions.sample.id},
+    :without_protection => true
   )
 end
 answers = Answer.all
@@ -36,10 +37,10 @@ answers = Answer.all
 users.each do |user|
   questions.each do |question|
     Vote.create(
-      {:user => user,
-            :votable => question,
-            :value => [-1,0,1,1,1].sample},
-            :without_protection => true
+      { :user => user,
+        :votable => question,
+        :value => [-1,0,1,1,1].sample},
+      :without_protection => true
     )
   end
 end
@@ -48,10 +49,10 @@ end
 users.each do |user|
   answers.each do |answer|
     Vote.create(
-       {:user => user,
+      { :user => user,
         :votable => answer,
         :value => [-1,0,1,1,1].sample},
-        :without_protection => true
+      :without_protection => true
     )
   end
 end

@@ -1,5 +1,7 @@
 %h1.header
-  Welcome to the Questions Page!
+  StoverFlow
+%h4
+  Meeting all your Stove Needs
 
 - if session[:id]
   = link_to 'Logout', logout_path
@@ -8,16 +10,7 @@
 
 - @questions.each do |question|
   %p
-    Score:
-    =question.votes.count
-  %p=question.title.titleize  
-  %p=question.content
-  %p
-    Written by 
-    =question.user.handle.titleize
-    Posted
-    =time_ago_in_words(question.created_at)
-    ago
-
-  = link_to "Edit", edit_question_path(question)
-  = link_to "Delete", question_path(question), :method => :delete
+    Score
+    =question.votes.map{|vote| vote.value }.inject(0) {|sum,v| sum + v}
+    %h4=link_to question.title.titleize, question_path(question), :method => :get
+    %br
