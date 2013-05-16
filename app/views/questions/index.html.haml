@@ -1,8 +1,11 @@
 %h1.header
   StoverFlow
+%h4
+  Meeting all your Stove Needs
 
 - @questions.each do |question|
   %p
     Score
     =question.votes.map{|vote| vote.value }.inject(0) {|sum,v| sum + v}
-  %h4=link_to question.title.titleize, question_path(question), :method => :get
+    %h4=link_to question.title.titleize, question_path(question), :method => :get
+    %br
