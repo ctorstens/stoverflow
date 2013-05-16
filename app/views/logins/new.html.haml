@@ -1,0 +1,9 @@
+%h2 Login to Stoverflow
+
+= form_for @user do |f|
+  = f.label(:username)
+  = f.text_field(:handle, placeholder: 'eg. braveLittleToaster')
+  
+  = f.label(:password)
+  = f.text_field(:password, placeholder: 'eg. t0ast3d')
+  = f.submit('Login')
