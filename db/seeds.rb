@@ -17,7 +17,7 @@ NUMBER_QUESTIONS.times do
   Question.create(
     { :user => users.sample,
       :title => Faker::Company.catch_phrase,
-      :content => Faker::Company.bs},
+      :content => Faker::Lorem.paragraph},
     :without_protection => true
   )
 end
@@ -26,7 +26,7 @@ questions = Question.all
 NUMBER_ANSWERS.times do
   Answer.create(
     { :user => users.sample,
-      :content => Faker::Company.bs,
+      :content => Faker::Lorem.paragraphs,
       :question_id => questions.sample.id},
     :without_protection => true
   )
