@@ -6,15 +6,3 @@
     Score:
     =question.votes.count
   %h4=link_to question.title.titleize, question_path(question), :method => :get
-  %h6
-    Written by 
-    =question.user.handle.titleize
-    Posted
-    =time_ago_in_words(question.created_at)
-    ago
-
-  = link_to "Edit", edit_question_path(question)
-  = link_to "Delete", question_path(question), :method => :delete
-
-  %br
-  %br
