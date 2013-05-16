@@ -4,9 +4,9 @@ class LoginsController < ApplicationController
   end
 
   def create
-    user = User.where(handle: params[:handle]).first.authenticate(params[:password])
-    session[:id] = user.id
-    redirect_to users_path(user.handle)
+    @user = User.where(handle: params[:handle]).first.authenticate(params[:password])
+    session[:id] = @user.id
+    redirect_to users_path(@user.handle)
   end
 
   def delete
