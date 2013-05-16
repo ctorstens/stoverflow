@@ -1,7 +1,7 @@
 %h1 Question
 %h5
-  Score:
-  =@question.votes.count
+  Score
+  =@question.votes.map{|vote| vote.value }.inject(0) {|sum,v| sum + v}
 %h3
   = @question.title
 %h6
@@ -23,7 +23,7 @@
       %li
         %p
           Score
-          =answer.votes.count
+          =answer.votes.map{|vote| vote.value }.inject(0) {|sum,v| sum + v}
         %p=answer.content
         %p
           %h5
