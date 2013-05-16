@@ -2,6 +2,7 @@
 %h5
   Score
   =@question.votes.map{|vote| vote.value }.inject(0) {|sum,v| sum + v}
+= render :partial => "/votes/vote_control"
 %h3
   = @question.title
 %h6
