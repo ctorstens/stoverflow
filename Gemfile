@@ -30,6 +30,7 @@ group :test, :development do
   gem 'faker'
   gem 'quiet_assets'
   gem 'debugger'
+  gem 'sextant'
 end
 
 group :test do
