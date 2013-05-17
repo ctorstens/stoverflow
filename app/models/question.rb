@@ -7,4 +7,8 @@ class Question < ActiveRecord::Base
 
   validates :title, :content, :presence => true
   
+
+  def vote_score
+    self.votes.map{|vote| vote.value }.inject(0) {|sum,v| sum + v}
+  end
 end
