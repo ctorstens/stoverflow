@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path(@user.handle)
+      redirect_to "/users/#{@user.handle}"
     else
       render :new
     end
