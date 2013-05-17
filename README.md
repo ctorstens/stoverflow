@@ -9,3 +9,7 @@
 
 ## To Do
 
+
+## References
+
+#### Detailed structure & references can be found in [this wiki](https://github.com/ctorstens/stoverflow/wiki)
