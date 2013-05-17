@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  # helper SessionHelper
-# 
+  helper SessionHelper
+
   def new
     @user = User.new
   end
