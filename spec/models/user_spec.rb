@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
   let(:user) { build(:user) }
 
-  context 'valid input' do
+  context '#valid input' do
     it 'validates the length of a good handle' do
       user.should be_valid
     end
@@ -22,7 +22,7 @@ describe User do
 
   end
 
-  context "invalid input" do
+  context "#invalid input" do
 
     it 'validates the format of a bad email' do
       user = build(:user, :email => 'Pat Smells Lovely')
@@ -39,7 +39,7 @@ describe User do
       user.should_not be_valid
     end
 
-    it 'validates the uniqueness of a bad email'
+    it "shouldn't accept a bad email"
 
   end
 

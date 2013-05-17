@@ -11,21 +11,21 @@ describe UsersController do
 
   describe '#create' do
     let!(:user) { build(:user) }
-    let(:params) {
-      {
-        "handle" => user.handle, 
-        "email" => user.email, 
-        "password" => 'blackbeard' 
-      }
-    }
-    it 'creates a new user' do
+    let(:params) {{
+      "handle" => user.handle, 
+      "email" => user.email, 
+      "password" => 'blackbeard' 
+    }}
+
+    it 'should create a new user' do
       User.should_receive(:new).with(params) { user }
       post :create, :user => params
     end
+    
   end
 
   describe '#show' do
-    it 'renders the new template' do
+    it 'should render the new template' do
       get :show, :id => 'foobar'
       response.should render_template('show')
     end
