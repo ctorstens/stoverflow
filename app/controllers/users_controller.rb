@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       sign_in
       redirect_to "/users/#{@user.handle}"
     else
-      render :new
+      redirect_to '/signup'
     end
   end
 
