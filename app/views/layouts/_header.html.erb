@@ -1,0 +1,11 @@
+<header class="header">
+	<h1>StoverFlow</h1>
+	<h4>Meeting all your Stove Needs</h4>
+
+	<% if session[:id] %>
+		<%= link_to 'Logout', logout_path %>
+	<% else %>
+		<%= link_to 'Login', login_path %>
+		<%= link_to 'Sign Up', signup_path %>
+	<% end %>
+</header>
