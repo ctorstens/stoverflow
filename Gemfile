@@ -28,7 +28,9 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'faker'
+  gem 'quiet_assets'
   gem 'debugger'
+  gem 'sextant'
 end
 
 group :test do

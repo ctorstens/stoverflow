@@ -1,4 +1,4 @@
-# StoverFlow
+# StoverFlow [![Build Status](https://travis-ci.org/ctorstens/stoverflow.png?branch=master)](https://travis-ci.org/ctorstens/stoverflow)
 
 ## The Chefs
 

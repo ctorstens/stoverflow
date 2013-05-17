@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # helper UserHelper
+  include SessionHelper
 
   def new
     @user = User.new
@@ -8,9 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path(@user.handle)
+      sign_in
+      redirect_to "/users/#{@user.handle}"
     else
-      render :new
+      redirect_to '/signup'
     end
   end
 

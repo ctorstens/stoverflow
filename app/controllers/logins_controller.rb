@@ -1,16 +1,22 @@
 class LoginsController < ApplicationController
+  include SessionHelper
+
   def new
     @user = User.new
   end
 
   def create
-    @user = User.where(handle: params[:handle]).first.authenticate(params[:password])
-    session[:id] = @user.id
-    redirect_to users_path(@user.handle)
+    @user = User.where(handle: params[:user][:handle]).first.authenticate(params[:user][:password])
+    if @user
+      sign_in
+      redirect_to "/users/#{@user.handle}"
+    else
+      render :new
+    end
   end
 
   def delete
-    session.clear
+    sign_out
     redirect_to '/'
   end
 end
