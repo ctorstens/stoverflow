@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-  # helper UserHelper
-
+  # helper SessionHelper
+# 
   def new
     @user = User.new
   end
 
   def create
+    puts 'we are here******************'
+
     @user = User.new(params[:user])
     if @user.save
       session[:id] = @user.id
