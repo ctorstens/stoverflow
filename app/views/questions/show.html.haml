@@ -27,6 +27,6 @@
             = answer.user.handle.titleize
             Posted
             = time_ago_in_words(answer.created_at)
-            agoif session[:id] = answer.user_id
-      = link_to "Edit", edit_answer_path(answer)
-      = link_to "Delete", answer_path(answer), :method => :delete
+      - if session[:id] == answer.user_id
+        = link_to "Edit", edit_answer_path(answer)
+        = link_to "Delete", answer_path(answer), :method => :delete
