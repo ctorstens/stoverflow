@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   def index
+    # puts "this is the session hash: " + session.inspect
     @questions = Question.all
   end
 
