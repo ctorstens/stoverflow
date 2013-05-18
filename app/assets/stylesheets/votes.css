@@ -13,13 +13,13 @@
 
 
 .vote_up_off {
-  background-image: url('images/sprites.png');
+  background-image: url('/assets/sprites.png');
   background-repeat: no-repeat;
   overflow: hidden;
 }
 
 .vote_up_off {
-  background: url('images/sprites.png') no-repeat 0 0;
+  background: url('/assets/sprites.png') no-repeat 0 0;
   width: 67px;
   height: 61px;
 }
