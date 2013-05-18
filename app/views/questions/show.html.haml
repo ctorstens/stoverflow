@@ -1,9 +1,6 @@
 %h1 Question
-%h5
-  Score
-= render :partial => "/votes/vote_control"
+= render "/votes/vote_control", :score => @question.vote_score
 %h3
-  =@question.vote_score
   = @question.title
 %h6
   Written by 
@@ -22,9 +19,7 @@
   %ul
     - @question.answers.each do |answer|
       %li
-        %p
-          Score
-          =answer.vote_score
+        = render "/votes/vote_control", :score => answer.vote_score
         %p=answer.content
         %p
           %h5
