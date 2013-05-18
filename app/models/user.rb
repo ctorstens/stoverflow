@@ -19,5 +19,9 @@ class User < ActiveRecord::Base
   validates :handle, :format => { :with => /^[A-Za-z\d_]+$/}
   validates :email,  :format => { :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
   validates :password, :format => { :with => /^[A-Za-z\d_]+$/}
+
+  def to_param
+    handle
+  end
   
 end

@@ -6,11 +6,12 @@ class LoginsController < ApplicationController
   end
 
   def create
-    @user = User.where(handle: params[:user][:handle]).first.authenticate(params[:user][:password])
-    if @user
+    @user = User.where(handle: params[:user][:handle]).first
+    if @user && @user.authenticate(params[:user][:password])
       sign_in
-      redirect_to "/users/#{@user.handle}"
+      redirect_to(@user)
     else
+      @user = User.new 
       render :new
     end
   end

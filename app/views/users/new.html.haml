@@ -5,8 +5,8 @@
   = f.text_field(:handle, placeholder: 'eg. braveLittleToaster')
 
   = f.label(:email)
-  = f.text_field(:email, placeholder: 'eg. toaster@email.com')
+  = f.email_field(:email, placeholder: 'eg. toaster@email.com')
   
   = f.label(:password)
-  = f.text_field(:password, placeholder: 'eg. t0ast3d')
+  = f.password_field(:password, placeholder: 'eg. t0ast3d')
   = f.submit('Sign Up')

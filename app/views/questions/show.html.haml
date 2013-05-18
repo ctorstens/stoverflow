@@ -1,19 +1,20 @@
 %h1 Question
 %h5
   Score
+<<<<<<< HEAD
 = render :partial => "/votes/vote_control"
 %h3
   =@question.vote_score
   = @question.title
 %h6
   Written by 
-  =@question.user.handle.titleize
+  = @question.user.handle.titleize
   Posted
-  =time_ago_in_words(@question.created_at)
+  = time_ago_in_words(@question.created_at)
   ago
-
-= link_to "Edit", edit_question_path(@question)
-= link_to "Delete", question_path(@question), :method => :delete
+- if session[:id] == @question.user_id
+  = link_to "Edit", edit_question_path(@question)
+  = link_to "Delete", question_path(@question), :method => :delete
 %h4
   = @question.content
 
@@ -29,9 +30,9 @@
         %p
           %h5
             Written by
-            =answer.user.handle.titleize
+            = answer.user.handle.titleize
             Posted
-            =time_ago_in_words(answer.created_at)
-            ago
+            = time_ago_in_words(answer.created_at)
+            agoif session[:id] = answer.user_id
       = link_to "Edit", edit_answer_path(answer)
       = link_to "Delete", answer_path(answer), :method => :delete
